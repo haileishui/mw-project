@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lmw.dao.TAntiThunderMapper" >
+  <resultMap id="BaseResultMap" type="com.lmw.domain.TAntiThunder" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="pid" property="pid" jdbcType="VARCHAR" />
+    <result column="jiancedianmingcheng" property="jiancedianmingcheng" jdbcType="VARCHAR" />
+    <result column="jinshuwumingcheng" property="jinshuwumingcheng" jdbcType="VARCHAR" />
+    <result column="waiguanjiancha" property="waiguanjiancha" jdbcType="VARCHAR" />
+    <result column="lianjiedaoticailiaoheguige" property="lianjiedaoticailiaoheguige" jdbcType="VARCHAR" />
+    <result column="yunxuzhi" property="yunxuzhi" jdbcType="VARCHAR" />
+    <result column="shicezhi" property="shicezhi" jdbcType="VARCHAR" />
+    <result column="yunxuzhi2" property="yunxuzhi2" jdbcType="VARCHAR" />
+    <result column="shicezhi2" property="shicezhi2" jdbcType="VARCHAR" />
+    <result column="changjinshuwumingcheng" property="changjinshuwumingcheng" jdbcType="VARCHAR" />
+    <result column="kuajiezhuangkuang" property="kuajiezhuangkuang" jdbcType="VARCHAR" />
+    <result column="kuajiedaoticailiaoheguige" property="kuajiedaoticailiaoheguige" jdbcType="VARCHAR" />
+    <result column="yunxuzhi3" property="yunxuzhi3" jdbcType="VARCHAR" />
+    <result column="shicezhi3" property="shicezhi3" jdbcType="VARCHAR" />
+    <result column="yunxuzhi4" property="yunxuzhi4" jdbcType="VARCHAR" />
+    <result column="shicezhi4" property="shicezhi4" jdbcType="VARCHAR" />
+    <result column="jielun" property="jielun" jdbcType="VARCHAR" />
+    <result column="beizhu" property="beizhu" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, pid, jiancedianmingcheng, jinshuwumingcheng, waiguanjiancha, lianjiedaoticailiaoheguige, 
+    yunxuzhi, shicezhi, yunxuzhi2, shicezhi2, changjinshuwumingcheng, kuajiezhuangkuang, 
+    kuajiedaoticailiaoheguige, yunxuzhi3, shicezhi3, yunxuzhi4, shicezhi4, jielun, beizhu
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_anti_thunder
+    where id = #{id}
+  </select>
+  
+   <select id="selectAntiThunderByPid" resultMap="BaseResultMap" parameterType="Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_anti_thunder
+    where pid = #{pid}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="Integer" >
+    delete from t_anti_thunder
+    where id = #{id}
+  </delete>
+  <delete id="deleteByPid" parameterType="Integer" >
+    delete from t_anti_thunder
+    where pid = #{pid}
+  </delete>
+  <insert id="insert" parameterType="com.lmw.domain.TAntiThunder" >
+    insert into t_anti_thunder (id, pid, jiancedianmingcheng, 
+      jinshuwumingcheng, waiguanjiancha, lianjiedaoticailiaoheguige, 
+      yunxuzhi, shicezhi, yunxuzhi2, 
+      shicezhi2, changjinshuwumingcheng, kuajiezhuangkuang, 
+      kuajiedaoticailiaoheguige, yunxuzhi3, shicezhi3, 
+      yunxuzhi4, shicezhi4, jielun, 
+      beizhu)
+    values (#{id}, #{pid}, #{jiancedianmingcheng,jdbcType=VARCHAR}, 
+      #{jinshuwumingcheng,jdbcType=VARCHAR}, #{waiguanjiancha,jdbcType=VARCHAR}, #{lianjiedaoticailiaoheguige,jdbcType=VARCHAR}, 
+      #{yunxuzhi,jdbcType=VARCHAR}, #{shicezhi,jdbcType=VARCHAR}, #{yunxuzhi2,jdbcType=VARCHAR}, 
+      #{shicezhi2,jdbcType=VARCHAR}, #{changjinshuwumingcheng,jdbcType=VARCHAR}, #{kuajiezhuangkuang,jdbcType=VARCHAR}, 
+      #{kuajiedaoticailiaoheguige,jdbcType=VARCHAR}, #{yunxuzhi3,jdbcType=VARCHAR}, #{shicezhi3,jdbcType=VARCHAR}, 
+      #{yunxuzhi4,jdbcType=VARCHAR}, #{shicezhi4,jdbcType=VARCHAR}, #{jielun,jdbcType=VARCHAR}, 
+      #{beizhu,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lmw.domain.TAntiThunder" >
+    insert into t_anti_thunder
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="pid != null" >
+        pid,
+      </if>
+      <if test="jiancedianmingcheng != null" >
+        jiancedianmingcheng,
+      </if>
+      <if test="jinshuwumingcheng != null" >
+        jinshuwumingcheng,
+      </if>
+      <if test="waiguanjiancha != null" >
+        waiguanjiancha,
+      </if>
+      <if test="lianjiedaoticailiaoheguige != null" >
+        lianjiedaoticailiaoheguige,
+      </if>
+      <if test="yunxuzhi != null" >
+        yunxuzhi,
+      </if>
+      <if test="shicezhi != null" >
+        shicezhi,
+      </if>
+      <if test="yunxuzhi2 != null" >
+        yunxuzhi2,
+      </if>
+      <if test="shicezhi2 != null" >
+        shicezhi2,
+      </if>
+      <if test="changjinshuwumingcheng != null" >
+        changjinshuwumingcheng,
+      </if>
+      <if test="kuajiezhuangkuang != null" >
+        kuajiezhuangkuang,
+      </if>
+      <if test="kuajiedaoticailiaoheguige != null" >
+        kuajiedaoticailiaoheguige,
+      </if>
+      <if test="yunxuzhi3 != null" >
+        yunxuzhi3,
+      </if>
+      <if test="shicezhi3 != null" >
+        shicezhi3,
+      </if>
+      <if test="yunxuzhi4 != null" >
+        yunxuzhi4,
+      </if>
+      <if test="shicezhi4 != null" >
+        shicezhi4,
+      </if>
+      <if test="jielun != null" >
+        jielun,
+      </if>
+      <if test="beizhu != null" >
+        beizhu,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id},
+      </if>
+      <if test="pid != null" >
+        #{pid},
+      </if>
+      <if test="jiancedianmingcheng != null" >
+        #{jiancedianmingcheng,jdbcType=VARCHAR},
+      </if>
+      <if test="jinshuwumingcheng != null" >
+        #{jinshuwumingcheng,jdbcType=VARCHAR},
+      </if>
+      <if test="waiguanjiancha != null" >
+        #{waiguanjiancha,jdbcType=VARCHAR},
+      </if>
+      <if test="lianjiedaoticailiaoheguige != null" >
+        #{lianjiedaoticailiaoheguige,jdbcType=VARCHAR},
+      </if>
+      <if test="yunxuzhi != null" >
+        #{yunxuzhi,jdbcType=VARCHAR},
+      </if>
+      <if test="shicezhi != null" >
+        #{shicezhi,jdbcType=VARCHAR},
+      </if>
+      <if test="yunxuzhi2 != null" >
+        #{yunxuzhi2,jdbcType=VARCHAR},
+      </if>
+      <if test="shicezhi2 != null" >
+        #{shicezhi2,jdbcType=VARCHAR},
+      </if>
+      <if test="changjinshuwumingcheng != null" >
+        #{changjinshuwumingcheng,jdbcType=VARCHAR},
+      </if>
+      <if test="kuajiezhuangkuang != null" >
+        #{kuajiezhuangkuang,jdbcType=VARCHAR},
+      </if>
+      <if test="kuajiedaoticailiaoheguige != null" >
+        #{kuajiedaoticailiaoheguige,jdbcType=VARCHAR},
+      </if>
+      <if test="yunxuzhi3 != null" >
+        #{yunxuzhi3,jdbcType=VARCHAR},
+      </if>
+      <if test="shicezhi3 != null" >
+        #{shicezhi3,jdbcType=VARCHAR},
+      </if>
+      <if test="yunxuzhi4 != null" >
+        #{yunxuzhi4,jdbcType=VARCHAR},
+      </if>
+      <if test="shicezhi4 != null" >
+        #{shicezhi4,jdbcType=VARCHAR},
+      </if>
+      <if test="jielun != null" >
+        #{jielun,jdbcType=VARCHAR},
+      </if>
+      <if test="beizhu != null" >
+        #{beizhu,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lmw.domain.TAntiThunder" >
+    update t_anti_thunder
+    <set >
+      <if test="pid != null" >
+        pid = #{pid},
+      </if>
+      <if test="jiancedianmingcheng != null" >
+        jiancedianmingcheng = #{jiancedianmingcheng,jdbcType=VARCHAR},
+      </if>
+      <if test="jinshuwumingcheng != null" >
+        jinshuwumingcheng = #{jinshuwumingcheng,jdbcType=VARCHAR},
+      </if>
+      <if test="waiguanjiancha != null" >
+        waiguanjiancha = #{waiguanjiancha,jdbcType=VARCHAR},
+      </if>
+      <if test="lianjiedaoticailiaoheguige != null" >
+        lianjiedaoticailiaoheguige = #{lianjiedaoticailiaoheguige,jdbcType=VARCHAR},
+      </if>
+      <if test="yunxuzhi != null" >
+        yunxuzhi = #{yunxuzhi,jdbcType=VARCHAR},
+      </if>
+      <if test="shicezhi != null" >
+        shicezhi = #{shicezhi,jdbcType=VARCHAR},
+      </if>
+      <if test="yunxuzhi2 != null" >
+        yunxuzhi2 = #{yunxuzhi2,jdbcType=VARCHAR},
+      </if>
+      <if test="shicezhi2 != null" >
+        shicezhi2 = #{shicezhi2,jdbcType=VARCHAR},
+      </if>
+      <if test="changjinshuwumingcheng != null" >
+        changjinshuwumingcheng = #{changjinshuwumingcheng,jdbcType=VARCHAR},
+      </if>
+      <if test="kuajiezhuangkuang != null" >
+        kuajiezhuangkuang = #{kuajiezhuangkuang,jdbcType=VARCHAR},
+      </if>
+      <if test="kuajiedaoticailiaoheguige != null" >
+        kuajiedaoticailiaoheguige = #{kuajiedaoticailiaoheguige,jdbcType=VARCHAR},
+      </if>
+      <if test="yunxuzhi3 != null" >
+        yunxuzhi3 = #{yunxuzhi3,jdbcType=VARCHAR},
+      </if>
+      <if test="shicezhi3 != null" >
+        shicezhi3 = #{shicezhi3,jdbcType=VARCHAR},
+      </if>
+      <if test="yunxuzhi4 != null" >
+        yunxuzhi4 = #{yunxuzhi4,jdbcType=VARCHAR},
+      </if>
+      <if test="shicezhi4 != null" >
+        shicezhi4 = #{shicezhi4,jdbcType=VARCHAR},
+      </if>
+      <if test="jielun != null" >
+        jielun = #{jielun,jdbcType=VARCHAR},
+      </if>
+      <if test="beizhu != null" >
+        beizhu = #{beizhu,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lmw.domain.TAntiThunder" >
+    update t_anti_thunder
+    set pid = #{pid},
+      jiancedianmingcheng = #{jiancedianmingcheng,jdbcType=VARCHAR},
+      jinshuwumingcheng = #{jinshuwumingcheng,jdbcType=VARCHAR},
+      waiguanjiancha = #{waiguanjiancha,jdbcType=VARCHAR},
+      lianjiedaoticailiaoheguige = #{lianjiedaoticailiaoheguige,jdbcType=VARCHAR},
+      yunxuzhi = #{yunxuzhi,jdbcType=VARCHAR},
+      shicezhi = #{shicezhi,jdbcType=VARCHAR},
+      yunxuzhi2 = #{yunxuzhi2,jdbcType=VARCHAR},
+      shicezhi2 = #{shicezhi2,jdbcType=VARCHAR},
+      changjinshuwumingcheng = #{changjinshuwumingcheng,jdbcType=VARCHAR},
+      kuajiezhuangkuang = #{kuajiezhuangkuang,jdbcType=VARCHAR},
+      kuajiedaoticailiaoheguige = #{kuajiedaoticailiaoheguige,jdbcType=VARCHAR},
+      yunxuzhi3 = #{yunxuzhi3,jdbcType=VARCHAR},
+      shicezhi3 = #{shicezhi3,jdbcType=VARCHAR},
+      yunxuzhi4 = #{yunxuzhi4,jdbcType=VARCHAR},
+      shicezhi4 = #{shicezhi4,jdbcType=VARCHAR},
+      jielun = #{jielun,jdbcType=VARCHAR},
+      beizhu = #{beizhu,jdbcType=VARCHAR}
+    where id = #{id}
+  </update>
+</mapper>

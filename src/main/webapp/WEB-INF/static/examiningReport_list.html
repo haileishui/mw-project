@@ -1,0 +1,187 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge"> 
+    <title>检测报告</title>
+    <script src="/static/js/jquery-2.1.1.min.js"></script>
+    <script src="/static/js/includetem.js"></script>
+    <link href="/static/css/bootstrap.min.css?v=3.4.0" rel="stylesheet">
+    <link href="/static/font-awesome/css/font-awesome.css?v=4.3.0" rel="stylesheet">
+    <link href="/static/css/plugins/datapicker/datepicker3.css" rel="stylesheet">
+    <link href="/static/css/animate.css" rel="stylesheet">
+    <link href="/static/css/style.css?v=2.2.0" rel="stylesheet">
+    <link href="/static/css/newStyles.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="wrapper">
+        <!--左边菜单-->
+		<div class="includetem"  id="include_my_menu" include="sideNav.html" menuselect="nav1_1" parentId="nav1"  selectclass="menu-selected"></div>
+
+        <div id="page-wrapper" class="gray-bg dashbard-1">
+            <div class="row border-bottom">
+                <nav class="navbar navbar-static-top mbt0" role="navigation">
+                    <div class="navbar-header">
+                        <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a> 
+                    </div>
+        			<!-- 右侧顶部菜单 -->
+					<div class="includetem"  id="include_top_nav" include="topNav.html"></div>
+        			<!-- 右侧顶部菜单 end -->
+                </nav>
+            </div>
+            <div class="row wrapper border-bottom white-bg page-heading">
+                <div class="col-lg-10">
+                    <h2>检测报告查询</h2>
+                </div>
+            </div>
+            <div class="wrapper wrapper-content animated fadeInRight">
+                <div id="query" class="row  mbt10">
+                    <div class="col-lg-12">
+                        <div class="ibox-title">
+                            <h5>查询条件</h5>
+                        </div>
+                        <input type="text" class="hidden" id="pageNumber" value="" />
+                        
+                        <div class="ibox-content mbt10">
+                          <div class="form-horizontal">
+                            <div class="form-group tar row">
+                                <label class="col-sm-2 control-label">委托单位：</label>
+                                <div class="col-md-2">
+                                   <input type="text"  class="form-control input-sm" id="weituodanwei" />
+                                </div>
+                                <label class="col-sm-2 control-label">检测人：</label>
+                                <div class="col-md-2">
+                                   <input type="text"  class="form-control input-sm" id="jianceren" />
+                                </div>
+                                <div id="zubie" class="admin-see"> 
+                                	<label class="col-sm-2 control-label">组  别：</label>
+                                	<div class="col-md-2">
+	                                	<select name="account" class="form-control input-sm pdt4" id="title">
+	                                      <option value="">全部</option>
+	                                      <option value="01">一组</option>
+	                                      <option value="02">二组</option>
+	                                      <option value="03">三组</option>
+	                                      <option value="04">四组</option>
+	                                      <option value="05">五组</option>
+	                                      <option value="06">六组</option>
+	                                      <option value="07">七组</option>
+	                                      <option value="08">八组</option>
+	                                      <option value="09">九组</option>
+	                                      <option value="10">十组</option>
+	                                  	</select>
+                                	</div>
+                                </div>
+                              
+                            </div>
+                            <div class="form-group tar row">
+	                            <label class="col-sm-2 control-label">报告编号：</label>
+	                              <div class="col-md-2">
+	                                       <input type="text"  class="form-control input-sm" id="baogaobianhao" />
+	                               </div>
+                                <label class="col-sm-2 control-label">有效期-结束：</label>
+                                <div class="col-md-4">
+                                   <div id="data_8">
+                                        <div class="input-daterange input-group" id="datepicker">
+                                        <input placeholder="--/--/--" type="text" class="form-control input-sm textLeft" name="start" id="jianceriqiStart" />
+                                        <span class="input-group-addon">到</span>
+                                        <input placeholder="--/--/--" type="text" class="form-control input-sm textLeft" name="end" id="jianceriqiEnd" />
+                                        </div>
+                                    </div>
+                                </div>
+<!--                                 <div class="col-md-2 lht30">默认查询当日</div> -->
+                                <div class="col-md-2 textRight">
+                                    <button type="button" class="btn btn-w-m btn-primary btn-sm" id="submit">查询</button>
+                                </div>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="ibox-title">
+                            <h5>查询结果</h5>
+                        </div>
+                        <div class="ibox-content">
+                        	<div class="form-group tar row">
+                                <div class="col-md-12">
+                                    <button type="button" class="btn btn-w-m btn-primary btn-sm" id="add" onclick="javascript:location.href='examiningReport_add.html';">新增</button>
+                                    <button type="button" class="btn btn-w-m btn-primary btn-sm" id="statisticsPrint" onclick="statisticsPrint();">打印统计表</button>
+                                </div>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-nowrap">序号</th>
+                                            <th class="text-nowrap">报告编号</th>
+                                            <th class="text-nowrap">委托单位</th>
+											<th class="text-nowrap">地址</th>
+											<th class="text-nowrap">邮编</th>
+											<th class="text-nowrap">联系电话</th>
+											<th class="text-nowrap">联系人</th>
+											<th class="text-nowrap">天气状况</th>
+											<th class="text-nowrap">地面状况</th>
+											<th class="text-nowrap">检测仪器</th>
+											<th class="text-nowrap">检测日期</th>
+<!-- 											<th class="text-nowrap">检测依据</th> -->
+<!-- 											<th class="text-nowrap">存在问题及整改意见</th> -->
+<!-- 											<th class="text-nowrap">检测结论</th> -->
+											<th class="text-nowrap">有效期-开始</th>
+											<th class="text-nowrap">有效期-结束</th>
+											<th class="text-nowrap">检测人</th>
+											<th class="text-nowrap">校核</th>
+											<th class="text-nowrap">批准人</th>
+											<th class="text-nowrap">费用（元）</th>
+											<th class="text-nowrap">组别</th>
+											<th class="text-nowrap">操作</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="table-list">
+                                    </tbody>
+                                </table>
+                            </div>
+                            
+                            <!-- 底部分页按钮 -->
+							<div id="pageLimit" align="right"></div>
+                            
+                         </div>
+                         <div class="ibox-content buttons footer-box">
+                            <button type="button" class="btn btn-primary btn-bitbucket btn-sm back">
+                                <i class="fa fa-arrow-left"></i> 返回
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>   
+            <div class="footer">
+                <div>
+                    <strong>Copyright</strong> 山东省枣庄市气象局 &copy; 2018
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- Mainly scripts -->
+    <script src="/static/js/jquery-2.1.1.min.js"></script>
+    <script src="/static/js/jquery-ui-1.10.4.min.js"></script>
+    <script src="/static/js/bootstrap.min.js?v=3.4.0"></script>
+    <script src="/static/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="/static/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <!-- Custom and plugin javascript -->
+    <script src="/static/js/hplus.js?v=2.2.0"></script>
+    <script src="/static/js/plugins/pace/pace.min.js"></script>
+    <!-- layer javascript -->
+	<script src="/static/js/plugins/layer/layer.min.js"></script>
+    <script src="/static/js/buttons.js"></script>
+    <!-- Data picker -->
+    <script src="/static/js/plugins/datapicker/bootstrap-datepicker.js"></script>
+    
+    <script src="/static/js/common/jqueryCommon.js"></script>
+	<script src="/static/js/plugins/bootstrap-paginator.min.js"></script>
+	<script src="/static/js/examiningReport/examiningReport_list.js"></script>
+</body>
+</html>

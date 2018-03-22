@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lmw.dao.TExaminingReportStatisticsMapper" >
+  <resultMap id="BaseResultMap" type="com.lmw.domain.TExaminingReportStatistics" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="baogaobianhao" property="baogaobianhao" jdbcType="VARCHAR" />
+    <result column="beijiancedanweimingcheng" property="beijiancedanweimingcheng" jdbcType="VARCHAR" />
+    <result column="lianxiren" property="lianxiren" jdbcType="VARCHAR" />
+    <result column="dianhua" property="dianhua" jdbcType="VARCHAR" />
+    <result column="jianceren" property="jianceren" jdbcType="VARCHAR" />
+    <result column="feiyong" property="feiyong" jdbcType="VARCHAR" />
+    <result column="fapiaoshijian" property="fapiaoshijian" jdbcType="VARCHAR" />
+    <result column="daozhangshijian" property="daozhangshijian" jdbcType="VARCHAR" />
+    <result column="jianceriqi" property="jianceriqi" jdbcType="VARCHAR" />
+    <result column="xiaciriqi" property="xiaciriqi" jdbcType="VARCHAR" />
+    <result column="baogaolingquren" property="baogaolingquren" jdbcType="VARCHAR" />
+    <result column="beizhu" property="beizhu" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, baogaobianhao, beijiancedanweimingcheng, lianxiren, dianhua, jianceren, feiyong, 
+    fapiaoshijian, daozhangshijian, jianceriqi, xiaciriqi, baogaolingquren, beizhu
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_examining_report_statistics
+    where id = #{id}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from t_examining_report_statistics
+    where id = #{id}
+  </delete>
+  <insert id="insert" parameterType="com.lmw.domain.TExaminingReportStatistics" >
+    insert into t_examining_report_statistics (id, baogaobianhao, beijiancedanweimingcheng, 
+      lianxiren, dianhua, jianceren, 
+      feiyong, fapiaoshijian, daozhangshijian, 
+      jianceriqi, xiaciriqi, baogaolingquren, 
+      beizhu)
+    values (#{id}, #{baogaobianhao,jdbcType=VARCHAR}, #{beijiancedanweimingcheng,jdbcType=VARCHAR}, 
+      #{lianxiren,jdbcType=VARCHAR}, #{dianhua,jdbcType=VARCHAR}, #{jianceren,jdbcType=VARCHAR}, 
+      #{feiyong,jdbcType=VARCHAR}, #{fapiaoshijian,jdbcType=VARCHAR}, #{daozhangshijian,jdbcType=VARCHAR}, 
+      #{jianceriqi,jdbcType=VARCHAR}, #{xiaciriqi,jdbcType=VARCHAR}, #{baogaolingquren,jdbcType=VARCHAR}, 
+      #{beizhu,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lmw.domain.TExaminingReportStatistics" >
+    insert into t_examining_report_statistics
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="baogaobianhao != null" >
+        baogaobianhao,
+      </if>
+      <if test="beijiancedanweimingcheng != null" >
+        beijiancedanweimingcheng,
+      </if>
+      <if test="lianxiren != null" >
+        lianxiren,
+      </if>
+      <if test="dianhua != null" >
+        dianhua,
+      </if>
+      <if test="jianceren != null" >
+        jianceren,
+      </if>
+      <if test="feiyong != null" >
+        feiyong,
+      </if>
+      <if test="fapiaoshijian != null" >
+        fapiaoshijian,
+      </if>
+      <if test="daozhangshijian != null" >
+        daozhangshijian,
+      </if>
+      <if test="jianceriqi != null" >
+        jianceriqi,
+      </if>
+      <if test="xiaciriqi != null" >
+        xiaciriqi,
+      </if>
+      <if test="baogaolingquren != null" >
+        baogaolingquren,
+      </if>
+      <if test="beizhu != null" >
+        beizhu,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id},
+      </if>
+      <if test="baogaobianhao != null" >
+        #{baogaobianhao,jdbcType=VARCHAR},
+      </if>
+      <if test="beijiancedanweimingcheng != null" >
+        #{beijiancedanweimingcheng,jdbcType=VARCHAR},
+      </if>
+      <if test="lianxiren != null" >
+        #{lianxiren,jdbcType=VARCHAR},
+      </if>
+      <if test="dianhua != null" >
+        #{dianhua,jdbcType=VARCHAR},
+      </if>
+      <if test="jianceren != null" >
+        #{jianceren,jdbcType=VARCHAR},
+      </if>
+      <if test="feiyong != null" >
+        #{feiyong,jdbcType=VARCHAR},
+      </if>
+      <if test="fapiaoshijian != null" >
+        #{fapiaoshijian,jdbcType=VARCHAR},
+      </if>
+      <if test="daozhangshijian != null" >
+        #{daozhangshijian,jdbcType=VARCHAR},
+      </if>
+      <if test="jianceriqi != null" >
+        #{jianceriqi,jdbcType=VARCHAR},
+      </if>
+      <if test="xiaciriqi != null" >
+        #{xiaciriqi,jdbcType=VARCHAR},
+      </if>
+      <if test="baogaolingquren != null" >
+        #{baogaolingquren,jdbcType=VARCHAR},
+      </if>
+      <if test="beizhu != null" >
+        #{beizhu,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lmw.domain.TExaminingReportStatistics" >
+    update t_examining_report_statistics
+    <set >
+      <if test="baogaobianhao != null" >
+        baogaobianhao = #{baogaobianhao,jdbcType=VARCHAR},
+      </if>
+      <if test="beijiancedanweimingcheng != null" >
+        beijiancedanweimingcheng = #{beijiancedanweimingcheng,jdbcType=VARCHAR},
+      </if>
+      <if test="lianxiren != null" >
+        lianxiren = #{lianxiren,jdbcType=VARCHAR},
+      </if>
+      <if test="dianhua != null" >
+        dianhua = #{dianhua,jdbcType=VARCHAR},
+      </if>
+      <if test="jianceren != null" >
+        jianceren = #{jianceren,jdbcType=VARCHAR},
+      </if>
+      <if test="feiyong != null" >
+        feiyong = #{feiyong,jdbcType=VARCHAR},
+      </if>
+      <if test="fapiaoshijian != null" >
+        fapiaoshijian = #{fapiaoshijian,jdbcType=VARCHAR},
+      </if>
+      <if test="daozhangshijian != null" >
+        daozhangshijian = #{daozhangshijian,jdbcType=VARCHAR},
+      </if>
+      <if test="jianceriqi != null" >
+        jianceriqi = #{jianceriqi,jdbcType=VARCHAR},
+      </if>
+      <if test="xiaciriqi != null" >
+        xiaciriqi = #{xiaciriqi,jdbcType=VARCHAR},
+      </if>
+      <if test="baogaolingquren != null" >
+        baogaolingquren = #{baogaolingquren,jdbcType=VARCHAR},
+      </if>
+      <if test="beizhu != null" >
+        beizhu = #{beizhu,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lmw.domain.TExaminingReportStatistics" >
+    update t_examining_report_statistics
+    set baogaobianhao = #{baogaobianhao,jdbcType=VARCHAR},
+      beijiancedanweimingcheng = #{beijiancedanweimingcheng,jdbcType=VARCHAR},
+      lianxiren = #{lianxiren,jdbcType=VARCHAR},
+      dianhua = #{dianhua,jdbcType=VARCHAR},
+      jianceren = #{jianceren,jdbcType=VARCHAR},
+      feiyong = #{feiyong,jdbcType=VARCHAR},
+      fapiaoshijian = #{fapiaoshijian,jdbcType=VARCHAR},
+      daozhangshijian = #{daozhangshijian,jdbcType=VARCHAR},
+      jianceriqi = #{jianceriqi,jdbcType=VARCHAR},
+      xiaciriqi = #{xiaciriqi,jdbcType=VARCHAR},
+      baogaolingquren = #{baogaolingquren,jdbcType=VARCHAR},
+      beizhu = #{beizhu,jdbcType=VARCHAR}
+    where id = #{id}
+  </update>
+</mapper>

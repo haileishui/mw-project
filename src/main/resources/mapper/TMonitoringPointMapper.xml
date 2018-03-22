@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lmw.dao.TMonitoringPointMapper" >
+  <resultMap id="BaseResultMap" type="com.lmw.domain.TMonitoringPoint" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="pid" property="pid" jdbcType="VARCHAR" />
+    <result column="jiancedianmingchen" property="jiancedianmingchen" jdbcType="VARCHAR" />
+    <result column="jiashegaodu" property="jiashegaodu" jdbcType="VARCHAR" />
+    <result column="xingzhuang" property="xingzhuang" jdbcType="VARCHAR" />
+    <result column="cailiao" property="cailiao" jdbcType="VARCHAR" />
+    <result column="yunxuzhi" property="yunxuzhi" jdbcType="VARCHAR" />
+    <result column="shicezhi" property="shicezhi" jdbcType="VARCHAR" />
+    <result column="cailiao2" property="cailiao2" jdbcType="VARCHAR" />
+    <result column="fushefangshi" property="fushefangshi" jdbcType="VARCHAR" />
+    <result column="jianju" property="jianju" jdbcType="VARCHAR" />
+    <result column="yunxuzhi2" property="yunxuzhi2" jdbcType="VARCHAR" />
+    <result column="shicezhi2" property="shicezhi2" jdbcType="VARCHAR" />
+    <result column="yunxuzhi3" property="yunxuzhi3" jdbcType="VARCHAR" />
+    <result column="shicezhi3" property="shicezhi3" jdbcType="VARCHAR" />
+    <result column="jielun" property="jielun" jdbcType="VARCHAR" />
+    <result column="beizhu" property="beizhu" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, pid, jiancedianmingchen, jiashegaodu, xingzhuang, cailiao, yunxuzhi, shicezhi, 
+    cailiao2, fushefangshi, jianju, yunxuzhi2, shicezhi2, yunxuzhi3, shicezhi3, jielun, 
+    beizhu
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_monitoring_point
+    where id = #{id}
+  </select>
+  <select id="selectMonitoringPointByPid" resultMap="BaseResultMap" parameterType="Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_monitoring_point
+    where pid = #{pid}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="Integer" >
+    delete from t_monitoring_point
+    where id = #{id}
+  </delete>
+  <delete id="deleteByPid" parameterType="Integer" >
+    delete from t_monitoring_point
+    where pid = #{pid}
+  </delete>
+  <insert id="insert" parameterType="com.lmw.domain.TMonitoringPoint" >
+    insert into t_monitoring_point (id, pid, jiancedianmingchen, 
+      jiashegaodu, xingzhuang, cailiao, 
+      yunxuzhi, shicezhi, cailiao2, 
+      fushefangshi, jianju, yunxuzhi2, 
+      shicezhi2, yunxuzhi3, shicezhi3, 
+      jielun, beizhu)
+    values (#{id}, #{pid}, #{jiancedianmingchen,jdbcType=VARCHAR}, 
+      #{jiashegaodu,jdbcType=VARCHAR}, #{xingzhuang,jdbcType=VARCHAR}, #{cailiao,jdbcType=VARCHAR}, 
+      #{yunxuzhi,jdbcType=VARCHAR}, #{shicezhi,jdbcType=VARCHAR}, #{cailiao2,jdbcType=VARCHAR}, 
+      #{fushefangshi,jdbcType=VARCHAR}, #{jianju,jdbcType=VARCHAR}, #{yunxuzhi2,jdbcType=VARCHAR}, 
+      #{shicezhi2,jdbcType=VARCHAR}, #{yunxuzhi3,jdbcType=VARCHAR}, #{shicezhi3,jdbcType=VARCHAR}, 
+      #{jielun,jdbcType=VARCHAR}, #{beizhu,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lmw.domain.TMonitoringPoint" >
+    insert into t_monitoring_point
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="pid != null" >
+        pid,
+      </if>
+      <if test="jiancedianmingchen != null" >
+        jiancedianmingchen,
+      </if>
+      <if test="jiashegaodu != null" >
+        jiashegaodu,
+      </if>
+      <if test="xingzhuang != null" >
+        xingzhuang,
+      </if>
+      <if test="cailiao != null" >
+        cailiao,
+      </if>
+      <if test="yunxuzhi != null" >
+        yunxuzhi,
+      </if>
+      <if test="shicezhi != null" >
+        shicezhi,
+      </if>
+      <if test="cailiao2 != null" >
+        cailiao2,
+      </if>
+      <if test="fushefangshi != null" >
+        fushefangshi,
+      </if>
+      <if test="jianju != null" >
+        jianju,
+      </if>
+      <if test="yunxuzhi2 != null" >
+        yunxuzhi2,
+      </if>
+      <if test="shicezhi2 != null" >
+        shicezhi2,
+      </if>
+      <if test="yunxuzhi3 != null" >
+        yunxuzhi3,
+      </if>
+      <if test="shicezhi3 != null" >
+        shicezhi3,
+      </if>
+      <if test="jielun != null" >
+        jielun,
+      </if>
+      <if test="beizhu != null" >
+        beizhu,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id},
+      </if>
+      <if test="pid != null" >
+        #{pid},
+      </if>
+      <if test="jiancedianmingchen != null" >
+        #{jiancedianmingchen,jdbcType=VARCHAR},
+      </if>
+      <if test="jiashegaodu != null" >
+        #{jiashegaodu,jdbcType=VARCHAR},
+      </if>
+      <if test="xingzhuang != null" >
+        #{xingzhuang,jdbcType=VARCHAR},
+      </if>
+      <if test="cailiao != null" >
+        #{cailiao,jdbcType=VARCHAR},
+      </if>
+      <if test="yunxuzhi != null" >
+        #{yunxuzhi,jdbcType=VARCHAR},
+      </if>
+      <if test="shicezhi != null" >
+        #{shicezhi,jdbcType=VARCHAR},
+      </if>
+      <if test="cailiao2 != null" >
+        #{cailiao2,jdbcType=VARCHAR},
+      </if>
+      <if test="fushefangshi != null" >
+        #{fushefangshi,jdbcType=VARCHAR},
+      </if>
+      <if test="jianju != null" >
+        #{jianju,jdbcType=VARCHAR},
+      </if>
+      <if test="yunxuzhi2 != null" >
+        #{yunxuzhi2,jdbcType=VARCHAR},
+      </if>
+      <if test="shicezhi2 != null" >
+        #{shicezhi2,jdbcType=VARCHAR},
+      </if>
+      <if test="yunxuzhi3 != null" >
+        #{yunxuzhi3,jdbcType=VARCHAR},
+      </if>
+      <if test="shicezhi3 != null" >
+        #{shicezhi3,jdbcType=VARCHAR},
+      </if>
+      <if test="jielun != null" >
+        #{jielun,jdbcType=VARCHAR},
+      </if>
+      <if test="beizhu != null" >
+        #{beizhu,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lmw.domain.TMonitoringPoint" >
+    update t_monitoring_point
+    <set >
+      <if test="pid != null" >
+        pid = #{pid},
+      </if>
+      <if test="jiancedianmingchen != null" >
+        jiancedianmingchen = #{jiancedianmingchen,jdbcType=VARCHAR},
+      </if>
+      <if test="jiashegaodu != null" >
+        jiashegaodu = #{jiashegaodu,jdbcType=VARCHAR},
+      </if>
+      <if test="xingzhuang != null" >
+        xingzhuang = #{xingzhuang,jdbcType=VARCHAR},
+      </if>
+      <if test="cailiao != null" >
+        cailiao = #{cailiao,jdbcType=VARCHAR},
+      </if>
+      <if test="yunxuzhi != null" >
+        yunxuzhi = #{yunxuzhi,jdbcType=VARCHAR},
+      </if>
+      <if test="shicezhi != null" >
+        shicezhi = #{shicezhi,jdbcType=VARCHAR},
+      </if>
+      <if test="cailiao2 != null" >
+        cailiao2 = #{cailiao2,jdbcType=VARCHAR},
+      </if>
+      <if test="fushefangshi != null" >
+        fushefangshi = #{fushefangshi,jdbcType=VARCHAR},
+      </if>
+      <if test="jianju != null" >
+        jianju = #{jianju,jdbcType=VARCHAR},
+      </if>
+      <if test="yunxuzhi2 != null" >
+        yunxuzhi2 = #{yunxuzhi2,jdbcType=VARCHAR},
+      </if>
+      <if test="shicezhi2 != null" >
+        shicezhi2 = #{shicezhi2,jdbcType=VARCHAR},
+      </if>
+      <if test="yunxuzhi3 != null" >
+        yunxuzhi3 = #{yunxuzhi3,jdbcType=VARCHAR},
+      </if>
+      <if test="shicezhi3 != null" >
+        shicezhi3 = #{shicezhi3,jdbcType=VARCHAR},
+      </if>
+      <if test="jielun != null" >
+        jielun = #{jielun,jdbcType=VARCHAR},
+      </if>
+      <if test="beizhu != null" >
+        beizhu = #{beizhu,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lmw.domain.TMonitoringPoint" >
+    update t_monitoring_point
+    set pid = #{pid},
+      jiancedianmingchen = #{jiancedianmingchen,jdbcType=VARCHAR},
+      jiashegaodu = #{jiashegaodu,jdbcType=VARCHAR},
+      xingzhuang = #{xingzhuang,jdbcType=VARCHAR},
+      cailiao = #{cailiao,jdbcType=VARCHAR},
+      yunxuzhi = #{yunxuzhi,jdbcType=VARCHAR},
+      shicezhi = #{shicezhi,jdbcType=VARCHAR},
+      cailiao2 = #{cailiao2,jdbcType=VARCHAR},
+      fushefangshi = #{fushefangshi,jdbcType=VARCHAR},
+      jianju = #{jianju,jdbcType=VARCHAR},
+      yunxuzhi2 = #{yunxuzhi2,jdbcType=VARCHAR},
+      shicezhi2 = #{shicezhi2,jdbcType=VARCHAR},
+      yunxuzhi3 = #{yunxuzhi3,jdbcType=VARCHAR},
+      shicezhi3 = #{shicezhi3,jdbcType=VARCHAR},
+      jielun = #{jielun,jdbcType=VARCHAR},
+      beizhu = #{beizhu,jdbcType=VARCHAR}
+    where id = #{id}
+  </update>
+</mapper>

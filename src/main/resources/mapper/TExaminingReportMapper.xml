@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lmw.dao.TExaminingReportMapper" >
+  <resultMap id="BaseResultMap" type="com.lmw.domain.TExaminingReport" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="weituodanwei" property="weituodanwei" jdbcType="VARCHAR" />
+    <result column="fangleileibie" property="fangleileibie" jdbcType="VARCHAR" />
+    <result column="jiancexingzhi" property="jiancexingzhi" jdbcType="VARCHAR" />
+    <result column="jiancedanwei" property="jiancedanwei" jdbcType="VARCHAR" />
+    <result column="dizhi" property="dizhi" jdbcType="VARCHAR" />
+    <result column="youbian" property="youbian" jdbcType="VARCHAR" />
+    <result column="lianxidianhua" property="lianxidianhua" jdbcType="VARCHAR" />
+    <result column="lianxiren" property="lianxiren" jdbcType="VARCHAR" />
+    <result column="tianqiqingkuang" property="tianqiqingkuang" jdbcType="VARCHAR" />
+    <result column="dimianzhuangkuang" property="dimianzhuangkuang" jdbcType="VARCHAR" />
+    <result column="jianceyiqi" property="jianceyiqi" jdbcType="VARCHAR" />
+    <result column="jianceriqi" property="jianceriqi" jdbcType="VARCHAR" />
+    <result column="jianceyiju" property="jianceyiju" jdbcType="VARCHAR" />
+    <result column="cunzaiwenti" property="cunzaiwenti" jdbcType="VARCHAR" />
+    <result column="jiancejielun" property="jiancejielun" jdbcType="VARCHAR" />
+    <result column="youxiaoqi_start" property="youxiaoqiStart" jdbcType="VARCHAR" />
+    <result column="youxiaoqi_end" property="youxiaoqiEnd" jdbcType="VARCHAR" />
+    <result column="jianceren" property="jianceren" jdbcType="VARCHAR" />
+    <result column="jiaohe" property="jiaohe" jdbcType="VARCHAR" />
+    <result column="pizhunren" property="pizhunren" jdbcType="VARCHAR" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="baogaobianhao" property="baogaobianhao" jdbcType="VARCHAR" />
+    <result column="jianzhuwuleibie" property="jianzhuwuleibie" jdbcType="VARCHAR" />
+    <result column="jiancejine" property="jiancejine" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, weituodanwei, fangleileibie,jiancexingzhi,jiancedanwei,dizhi, youbian, lianxidianhua, lianxiren, tianqiqingkuang, dimianzhuangkuang, 
+    jianceyiqi, jianceriqi, jianceyiju, cunzaiwenti, jiancejielun, youxiaoqi_start, youxiaoqi_end,jianceren, jiaohe, pizhunren,title,baogaobianhao,jianzhuwuleibie,jiancejine
+  </sql>
+  <select id="selectExaminingReportList" resultMap="BaseResultMap" parameterType="com.lmw.dao.TExaminingReportMapper" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_examining_report
+    <where>
+      <if test="weituodanwei != null and weituodanwei != '' " >
+        AND weituodanwei like  CONCAT('%',#{weituodanwei},'%')
+      </if>
+      <if test="dizhi != null and dizhi != '' " >
+        AND dizhi = #{dizhi,jdbcType=VARCHAR}
+      </if>
+      <if test="youbian != null and youbian != '' " >
+        AND youbian = #{youbian,jdbcType=VARCHAR}
+      </if>
+      <if test="lianxidianhua != null and lianxidianhua != '' " >
+        AND lianxidianhua = #{lianxidianhua,jdbcType=VARCHAR}
+      </if>
+      <if test="lianxiren != null and lianxiren != ''" >
+        AND lianxiren = #{lianxiren,jdbcType=VARCHAR}
+      </if>
+      <if test="tianqiqingkuang != null and tianqiqingkuang != '' " >
+        AND tianqiqingkuang = #{tianqiqingkuang,jdbcType=VARCHAR}
+      </if>
+      <if test="dimianzhuangkuang != null and dimianzhuangkuang != '' " >
+        AND dimianzhuangkuang = #{dimianzhuangkuang,jdbcType=VARCHAR}
+      </if>
+      <if test="jianceyiqi != null and jianceyiqi != ''  and jianceyiqi != '' " >
+        AND jianceyiqi = #{jianceyiqi,jdbcType=VARCHAR}
+      </if>
+      <if test="jianceriqiStart !=null and jianceriqiStart !='' ">
+	    AND youxiaoqi_end <![CDATA[ >= ]]> #{jianceriqiStart}
+	  </if>
+	  <if test="jianceriqiEnd !=null and jianceriqiEnd != '' ">
+	    AND youxiaoqi_end <![CDATA[ <= ]]> #{jianceriqiEnd}  
+	  </if>
+      <if test="jianceyiju != null and jianceyiju != '' " >
+        AND jianceyiju = #{jianceyiju,jdbcType=VARCHAR}
+      </if>
+      <if test="cunzaiwenti != null and cunzaiwenti != '' " >
+        AND cunzaiwenti = #{cunzaiwenti,jdbcType=VARCHAR}
+      </if>
+      <if test="jiancejielun != null and jiancejielun != '' " >
+        AND jiancejielun = #{jiancejielun,jdbcType=VARCHAR}
+      </if>
+      <if test="youxiaoqiStart != null and youxiaoqiStart != '' " >
+        AND youxiaoqi_start = #{youxiaoqiStart,jdbcType=VARCHAR}
+      </if>
+      <if test="youxiaoqiEnd != null and youxiaoqiEnd != ''" >
+        AND youxiaoqi_end = #{youxiaoqiEnd,jdbcType=VARCHAR}
+      </if>
+      <if test="jianceren != null and jianceren != ''" >
+        AND jianceren = #{jianceren,jdbcType=VARCHAR}
+      </if>
+      <if test="jiaohe != null and jiaohe != ''" >
+        AND jiaohe = #{jiaohe,jdbcType=VARCHAR}
+      </if>
+      <if test="pizhunren != null and pizhunren != ''" >
+        AND pizhunren = #{pizhunren,jdbcType=VARCHAR}
+      </if>
+      <if test="title != null and title != '' " >
+        AND title = #{title,jdbcType=VARCHAR}
+      </if>
+      <if test="baogaobianhao != null and baogaobianhao != '' " >
+        AND baogaobianhao like CONCAT('%',#{baogaobianhao},'%')
+      </if>
+      <if test="jianzhuwuleibie != null and jianzhuwuleibie != '' " >
+        AND jianzhuwuleibie = #{jianzhuwuleibie,jdbcType=VARCHAR}
+      </if>
+      <if test="jiancejine != null and jiancejine != '' " >
+        AND jiancejine = #{jiancejine,jdbcType=VARCHAR}
+      </if>
+    </where>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.lmw.dao.TExaminingReportMapper" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_examining_report
+    where id = #{id}
+    <if test="title != null and title != '' " >
+        AND title = #{title,jdbcType=VARCHAR}
+    </if>
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.lmw.domain.TExaminingReport" >
+    delete from t_examining_report
+    where id = #{id}
+    <if test="title != null and title != '' " >
+        AND title = #{title,jdbcType=VARCHAR}
+    </if>
+  </delete>
+  <insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="com.lmw.domain.TExaminingReport" >
+    insert into t_examining_report (id, weituodanwei,fangleileibie,jiancexingzhi,jiancedanwei, dizhi, 
+      youbian, lianxidianhua, lianxiren, 
+      tianqiqingkuang, dimianzhuangkuang, jianceyiqi, 
+      jianceriqi, jianceyiju, cunzaiwenti, 
+      jiancejielun, youxiaoqi_start, youxiaoqi_end, 
+      jianceren, jiaohe, pizhunren,title,baogaobianhao,
+      jianzhuwuleibie,jiancejine
+      )
+    values (#{id}, #{weituodanwei,jdbcType=VARCHAR},#{fangleileibie,jdbcType=VARCHAR},#{jiancexingzhi,jdbcType=VARCHAR},#{jiancedanwei,jdbcType=VARCHAR}, #{dizhi,jdbcType=VARCHAR}, 
+      #{youbian,jdbcType=VARCHAR}, #{lianxidianhua,jdbcType=VARCHAR}, #{lianxiren,jdbcType=VARCHAR}, 
+      #{tianqiqingkuang,jdbcType=VARCHAR}, #{dimianzhuangkuang,jdbcType=VARCHAR}, #{jianceyiqi,jdbcType=VARCHAR}, 
+      #{jianceriqi,jdbcType=VARCHAR}, #{jianceyiju,jdbcType=VARCHAR}, #{cunzaiwenti,jdbcType=VARCHAR}, 
+      #{jiancejielun,jdbcType=VARCHAR}, #{youxiaoqiStart,jdbcType=VARCHAR}, #{youxiaoqiEnd,jdbcType=VARCHAR}, 
+      #{jianceren,jdbcType=VARCHAR}, #{jiaohe,jdbcType=VARCHAR}, #{pizhunren,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR},CONCAT('WT(',date_format(now(),'%Y'),')',date_format(now(),'%m'),#{title},LPAD( NEXTVAL('bianhaoSeq'), 4, 0)),
+      #{jianzhuwuleibie,jdbcType=VARCHAR}, #{jiancejine,jdbcType=VARCHAR},
+      )
+  </insert>
+  <insert id="insertSelective" useGeneratedKeys="true" keyProperty="id" parameterType="com.lmw.domain.TExaminingReport" >
+    insert into t_examining_report
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="weituodanwei != null and weituodanwei != '' " >
+        weituodanwei,
+      </if>
+      <if test="fangleileibie != null and fangleileibie != '' " >
+        fangleileibie,
+      </if>
+      <if test="jiancexingzhi != null and jiancexingzhi != '' " >
+        jiancexingzhi,
+      </if>
+      <if test="jiancedanwei != null and jiancedanwei != '' " >
+        jiancedanwei,
+      </if>
+      <if test="dizhi != null and dizhi != '' " >
+        dizhi,
+      </if>
+      <if test="youbian != null and youbian != '' " >
+        youbian,
+      </if>
+      <if test="lianxidianhua != null and lianxidianhua != '' " >
+        lianxidianhua,
+      </if>
+      <if test="lianxiren != null and lianxiren != '' " >
+        lianxiren,
+      </if>
+      <if test="tianqiqingkuang != null and tianqiqingkuang != '' " >
+        tianqiqingkuang,
+      </if>
+      <if test="dimianzhuangkuang != null and dimianzhuangkuang != '' " >
+        dimianzhuangkuang,
+      </if>
+      <if test="jianceyiqi != null and jianceyiqi != '' " >
+        jianceyiqi,
+      </if>
+      <if test="jianceriqi != null and jianceriqi != ''  " >
+        jianceriqi,
+      </if>
+      <if test="jianceyiju != null and jianceyiju != '' " >
+        jianceyiju,
+      </if>
+      <if test="cunzaiwenti != null and cunzaiwenti != ''  " >
+        cunzaiwenti,
+      </if>
+      <if test="jiancejielun != null and jiancejielun != ''  " >
+        jiancejielun,
+      </if>
+      <if test="youxiaoqiStart != null and youxiaoqiStart != '' " >
+        youxiaoqi_start,
+      </if>
+      <if test="youxiaoqiEnd != null and youxiaoqiEnd != ''  " >
+        youxiaoqi_end,
+      </if>
+      <if test="jianceren != null and jianceren != '' " >
+        jianceren,
+      </if>
+      <if test="jiaohe != null and jiaohe != '' " >
+        jiaohe,
+      </if>
+      <if test="pizhunren != null and pizhunren != ''  " >
+        pizhunren,
+      </if>
+      <if test="title != null and title != ''  " >
+        title,
+      </if>
+      <if test="jianzhuwuleibie != null and jianzhuwuleibie != ''  " >
+        jianzhuwuleibie,
+      </if>
+      <if test="jiancejine != null and jiancejine != ''  " >
+        jiancejine,
+      </if>
+        baogaobianhao
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id},
+      </if>
+      <if test="weituodanwei != null and weituodanwei != '' " >
+        #{weituodanwei,jdbcType=VARCHAR},
+      </if>
+      <if test="fangleileibie != null and fangleileibie != '' " >
+        #{fangleileibie,jdbcType=VARCHAR},
+      </if>
+      <if test="jiancexingzhi != null and jiancexingzhi != '' " >
+        #{jiancexingzhi,jdbcType=VARCHAR},
+      </if>
+      <if test="jiancedanwei != null and jiancedanwei != '' " >
+        #{jiancedanwei,jdbcType=VARCHAR},
+      </if>
+      <if test="dizhi != null and dizhi != '' " >
+        #{dizhi,jdbcType=VARCHAR},
+      </if>
+      <if test="youbian != null and youbian != '' " >
+        #{youbian,jdbcType=VARCHAR},
+      </if>
+      <if test="lianxidianhua != null and lianxidianhua != '' " >
+        #{lianxidianhua,jdbcType=VARCHAR},
+      </if>
+      <if test="lianxiren != null and lianxiren != '' " >
+        #{lianxiren,jdbcType=VARCHAR},
+      </if>
+      <if test="tianqiqingkuang != null and tianqiqingkuang != '' " >
+        #{tianqiqingkuang,jdbcType=VARCHAR},
+      </if>
+      <if test="dimianzhuangkuang != null and dimianzhuangkuang != '' " >
+        #{dimianzhuangkuang,jdbcType=VARCHAR},
+      </if>
+      <if test="jianceyiqi != null and jianceyiqi != '' " >
+        #{jianceyiqi,jdbcType=VARCHAR},
+      </if>
+      <if test="jianceriqi != null and jianceriqi != '' " >
+        #{jianceriqi,jdbcType=VARCHAR},
+      </if>
+      <if test="jianceyiju != null and jianceyiju != '' " >
+        #{jianceyiju,jdbcType=VARCHAR},
+      </if>
+      <if test="cunzaiwenti != null and cunzaiwenti != '' " >
+        #{cunzaiwenti,jdbcType=VARCHAR},
+      </if>
+      <if test="jiancejielun != null and jiancejielun != '' " >
+        #{jiancejielun,jdbcType=VARCHAR},
+      </if>
+      <if test="youxiaoqiStart != null and youxiaoqiStart != '' " >
+        #{youxiaoqiStart,jdbcType=VARCHAR},
+      </if>
+      <if test="youxiaoqiEnd != null and youxiaoqiEnd != '' " >
+        #{youxiaoqiEnd,jdbcType=VARCHAR},
+      </if>
+      <if test="jianceren != null and jianceren != '' " >
+        #{jianceren,jdbcType=VARCHAR},
+      </if>
+      <if test="jiaohe != null and jiaohe != '' " >
+        #{jiaohe,jdbcType=VARCHAR},
+      </if>
+      <if test="pizhunren != null and pizhunren != '' " >
+        #{pizhunren,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null and title != '' " >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="jianzhuwuleibie != null and jianzhuwuleibie != '' " >
+        #{jianzhuwuleibie,jdbcType=VARCHAR},
+      </if>
+      <if test="jiancejine != null and jiancejine != '' " >
+        #{jiancejine,jdbcType=VARCHAR},
+      </if>
+       CONCAT('WT(',date_format(now(),'%Y'),')',date_format(now(),'%m'),#{title},LPAD(NEXTVAL('bianhaoSeq'), 4, 0))
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lmw.domain.TExaminingReport" >
+    update t_examining_report
+    <set >
+      <if test="weituodanwei != null and weituodanwei != '' " >
+        weituodanwei = #{weituodanwei,jdbcType=VARCHAR},
+      </if>
+      <if test="fangleileibie != null and fangleileibie != '' " >
+        fangleileibie = #{fangleileibie,jdbcType=VARCHAR},
+      </if>
+      <if test="jiancexingzhi != null and jiancexingzhi != '' " >
+        jiancexingzhi = #{jiancexingzhi,jdbcType=VARCHAR},
+      </if>
+      <if test="jiancedanwei != null and jiancedanwei != '' " >
+        jiancedanwei = #{jiancedanwei,jdbcType=VARCHAR},
+      </if>
+      <if test="dizhi != null and dizhi != '' " >
+        dizhi = #{dizhi,jdbcType=VARCHAR},
+      </if>
+      <if test="youbian != null and youbian != '' " >
+        youbian = #{youbian,jdbcType=VARCHAR},
+      </if>
+      <if test="lianxidianhua != null and lianxidianhua != '' " >
+        lianxidianhua = #{lianxidianhua,jdbcType=VARCHAR},
+      </if>
+      <if test="lianxiren != null and lianxiren != '' " >
+        lianxiren = #{lianxiren,jdbcType=VARCHAR},
+      </if>
+      <if test="tianqiqingkuang != null and tianqiqingkuang != '' " >
+        tianqiqingkuang = #{tianqiqingkuang,jdbcType=VARCHAR},
+      </if>
+      <if test="dimianzhuangkuang != null and dimianzhuangkuang != '' " >
+        dimianzhuangkuang = #{dimianzhuangkuang,jdbcType=VARCHAR},
+      </if>
+      <if test="jianceyiqi != null and jianceyiqi != '' " >
+        jianceyiqi = #{jianceyiqi,jdbcType=VARCHAR},
+      </if>
+      <if test="jianceriqi != null and jianceriqi != '' " >
+        jianceriqi = #{jianceriqi,jdbcType=VARCHAR},
+      </if>
+      <if test="jianceyiju != null and jianceyiju != '' " >
+        jianceyiju = #{jianceyiju,jdbcType=VARCHAR},
+      </if>
+      <if test="cunzaiwenti != null and cunzaiwenti != '' " >
+        cunzaiwenti = #{cunzaiwenti,jdbcType=VARCHAR},
+      </if>
+      <if test="jiancejielun != null and jiancejielun != '' " >
+        jiancejielun = #{jiancejielun,jdbcType=VARCHAR},
+      </if>
+      <if test="youxiaoqiStart != null and youxiaoqiStart != '' " >
+        youxiaoqi_start = #{youxiaoqiStart,jdbcType=VARCHAR},
+      </if>
+      <if test="youxiaoqiEnd != null and youxiaoqiEnd != '' " >
+        youxiaoqi_end = #{youxiaoqiEnd,jdbcType=VARCHAR},
+      </if>
+      <if test="jianceren != null and jianceren != '' " >
+        jianceren = #{jianceren,jdbcType=VARCHAR},
+      </if>
+      <if test="jiaohe != null and jiaohe != '' " >
+        jiaohe = #{jiaohe,jdbcType=VARCHAR},
+      </if>
+      <if test="pizhunren != null and pizhunren != '' " >
+        pizhunren = #{pizhunren,jdbcType=VARCHAR},
+      </if>
+      <if test="jianzhuwuleibie != null and jianzhuwuleibie != '' " >
+        jianzhuwuleibie = #{jianzhuwuleibie,jdbcType=VARCHAR},
+      </if>
+      <if test="jiancejine != null and jiancejine != '' " >
+        jiancejine = #{jiancejine,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id}
+    <if test="title != null and title != '' " >
+        AND title = #{title,jdbcType=VARCHAR}
+    </if>
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lmw.domain.TExaminingReport" >
+    update t_examining_report
+    set weituodanwei = #{weituodanwei,jdbcType=VARCHAR},
+      fangleileibie = #{fangleileibie,jdbcType=VARCHAR},
+      jiancexingzhi = #{jiancexingzhi,jdbcType=VARCHAR},
+      jiancedanwei = #{jiancedanwei,jdbcType=VARCHAR},
+      dizhi = #{dizhi,jdbcType=VARCHAR},
+      youbian = #{youbian,jdbcType=VARCHAR},
+      lianxidianhua = #{lianxidianhua,jdbcType=VARCHAR},
+      lianxiren = #{lianxiren,jdbcType=VARCHAR},
+      tianqiqingkuang = #{tianqiqingkuang,jdbcType=VARCHAR},
+      dimianzhuangkuang = #{dimianzhuangkuang,jdbcType=VARCHAR},
+      jianceyiqi = #{jianceyiqi,jdbcType=VARCHAR},
+      jianceriqi = #{jianceriqi,jdbcType=VARCHAR},
+      jianceyiju = #{jianceyiju,jdbcType=VARCHAR},
+      cunzaiwenti = #{cunzaiwenti,jdbcType=VARCHAR},
+      jiancejielun = #{jiancejielun,jdbcType=VARCHAR},
+      youxiaoqi_start = #{youxiaoqiStart,jdbcType=VARCHAR},
+      youxiaoqi_end = #{youxiaoqiEnd,jdbcType=VARCHAR},
+      jianceren = #{jianceren,jdbcType=VARCHAR},
+      jiaohe = #{jiaohe,jdbcType=VARCHAR},
+      pizhunren = #{pizhunren,jdbcType=VARCHAR}
+      jianzhuwuleibie = #{jianzhuwuleibie,jdbcType=VARCHAR}
+      jiancejine = #{jiancejine,jdbcType=VARCHAR}
+    where id = #{id}
+    <if test="title != null and title != '' " >
+        AND title = #{title,jdbcType=VARCHAR}
+    </if>
+  </update>
+</mapper>

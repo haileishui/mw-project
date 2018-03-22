@@ -1,0 +1,367 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge"> 
+    <title>检测报告统计</title>
+    <script src="/static/js/jquery-2.1.1.min.js"></script>
+    <script src="/static/js/includetem.js"></script>
+    <link href="/static/css/bootstrap.min.css?v=3.4.0" rel="stylesheet">
+    <link href="/static/font-awesome/css/font-awesome.css?v=4.3.0" rel="stylesheet">
+    <link href="/static/css/plugins/datapicker/datepicker3.css" rel="stylesheet">
+    <link href="/static/css/animate.css" rel="stylesheet">
+    <link href="/static/css/style.css?v=2.2.0" rel="stylesheet">
+    <link href="/static/css/newStyles.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="wrapper">
+        <!--左边菜单-->
+		<div class="includetem"  id="include_my_menu" include="sideNav.html" menuselect="nav1_1" parentId="nav1"  selectclass="menu-selected"></div>
+
+        <div id="page-wrapper" class="gray-bg dashbard-1">
+            <div class="row border-bottom">
+                <nav class="navbar navbar-static-top mbt0" role="navigation">
+                    <div class="navbar-header">
+                        <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a> 
+                    </div>
+        			<!-- 右侧顶部菜单 -->
+					<div class="includetem"  id="include_top_nav" include="topNav.html"></div>
+        			<!-- 右侧顶部菜单 end -->
+                </nav>
+            </div>
+            <div class="row wrapper border-bottom white-bg page-heading">
+                <div class="col-lg-10">
+                    <h2>检测报告查看</h2>
+                </div>
+            </div>
+            <div class="wrapper wrapper-content animated fadeInRight">
+                <div class="row">
+                    <div class="col-lg-12">
+	                	<div class="ibox-title">
+	                         <h5>基本信息</h5>
+	                     </div>
+                    	<div>
+	                        <div class="ibox-content mbt10">
+	                          <div class="form-horizontal">
+	                            <div class="form-group tar row">
+	                                <label class="col-sm-2 control-label">委托单位：</label>
+	                                <div class="col-md-6 lht30"><input type="text" id="weituodanwei" class="form-control input-sm" value="" /></div>
+	                            </div>
+	                            <div class="form-group tar row">
+	                                <label class="col-sm-2 control-label">防雷类别：</label>
+	                                <div class="col-md-6 lht30"><input type="text" id="fangleileibie" class="form-control input-sm" value="" /></div>
+	                            </div>
+	                            <div class="form-group tar row">
+	                                <label class="col-sm-2 control-label">检测性质：</label>
+	                                <div class="col-md-6 lht30"><input type="text" id="jiancexingzhi" class="form-control input-sm" value="" /></div>
+	                            </div>
+	                            <div class="form-group tar row">
+	                                <label class="col-sm-2 control-label">检测单位：</label>
+	                                <div class="col-md-6 lht30"><input type="text" id="jiancedanwei" class="form-control input-sm" value="" /></div>
+	                            </div>
+	                            <div class="form-group tar row">
+	                                <label class="col-sm-2 control-label">地  址：</label>
+	                                <div class="col-md-6 lht30"><input type="text" id="dizhi" class="form-control input-sm" value="" /></div>
+	                            </div>
+	                            <div class="form-group tar row">
+	                                <label class="col-sm-2 control-label">邮  编：</label>
+	                                <div class="col-md-6 lht30"><input type="text" id="youbian" class="form-control input-sm" value="" /></div>
+	                            </div>
+	                            <div class="form-group tar row">
+	                                <label class="col-sm-2 control-label">联系电话：</label>
+	                                <div class="col-md-6 lht30"><input type="text" id="lianxidianhua" class="form-control input-sm" value="" /></div>
+	                            </div>
+	                            <div class="form-group tar row">
+	                                <label class="col-sm-2 control-label">联系人：</label>
+	                                <div class="col-md-6 lht30"><input type="text" id="lianxiren" class="form-control input-sm" value="" /></div>
+	                            </div>
+	                            <div class="form-group tar row">
+	                                <label class="col-sm-2 control-label">天气状况：</label>
+	                                <div class="col-md-6 lht30"><input type="text" id="tianqiqingkuang" class="form-control input-sm" value="" /></div>
+	                            </div>
+	                            <div class="form-group tar row">
+	                                <label class="col-sm-2 control-label">地面状况：</label>
+	                                <div class="col-md-6 lht30"><input type="text" id="dimianzhuangkuang" class="form-control input-sm" value="" /></div>
+	                            </div>
+	                            <div class="form-group tar row">
+	                                <label class="col-sm-2 control-label">检测仪器：</label>
+	                                <div class="col-md-6 lht30"><input type="text" id="jianceyiqi" class="form-control input-sm" value="" /></div>
+	                            </div>
+	                            <div class="form-group tar row">
+	                                <label class="col-sm-2 control-label">检测日期：</label>
+	                                <div class="col-md-6 lht30"><input type="text" id="jianceriqi" class="form-control input-sm" value="" /></div>
+	                            </div>
+	                            <div class="form-group tar row">
+	                                <label class="col-sm-2 control-label">检测依据：</label>
+	                                <div class="col-md-6 lht30"><textarea rows="5" id="jianceyiju" class="form-control input-sm" ></textarea></div>
+	                            </div>
+	                            <div class="form-group tar row">
+	                                <label class="col-sm-2 control-label">存在问题及整改意见：</label>
+	                                <div class="col-md-6 lht30"><textarea rows="5" id="cunzaiwenti" class="form-control input-sm" ></textarea></div>
+	                            </div>
+	                            <div class="form-group tar row">
+	                                <label class="col-sm-2 control-label">检测结论：</label>
+	                                <div class="col-md-6 lht30"><textarea rows="5" id="jiancejielun" class="form-control input-sm" ></textarea></div>
+	                            </div>
+	                            <div class="form-group tar row">
+	                                <label class="col-sm-2 control-label">有效期：</label>
+	                                <div class="col-md-4">
+	                                   <div id="data_8">
+	                                        <div class="input-daterange input-group" id="datepicker">
+	                                        <input placeholder="--/--/--" type="text" class="form-control input-sm textLeft" name="start" id="ddcjsjStart" />
+	                                        <span class="input-group-addon">到</span>
+	                                        <input placeholder="--/--/--" type="text" class="form-control input-sm textLeft" name="end" id="ddcjsjEnd" />
+	                                        </div>
+	                                    </div>
+	                                </div>
+                            	</div>
+	                            <div class="form-group tar row">
+	                                <label class="col-sm-2 control-label">检测人：</label>
+	                                <div class="col-md-6 lht30"><input type="text" id="jianceren" class="form-control input-sm" value="" /></div>
+	                            </div>
+	                            <div class="form-group tar row">
+	                                <label class="col-sm-2 control-label">校核：</label>
+	                                <div class="col-md-6 lht30"><input type="text" id="jiaohe" class="form-control input-sm" value="" /></div>
+	                            </div>
+	                            <div class="form-group tar row">
+	                                <label class="col-sm-2 control-label">批准人：</label>
+	                                <div class="col-md-6 lht30"><input type="text" id="pizhunren" class="form-control input-sm" value="" /></div>
+	                            </div>
+	                          </div>
+	                        </div>
+                         </div>
+                         <!-- 第一个table -->
+                    	<div>
+                    		<div class="ibox-title">
+	                            <h5>防     直     击     雷</h5>
+	                        </div>
+	                        <div class="ibox-content mbt10">
+	                          <!-- table -->
+	                          <div class="table-responsive">
+		                          <table class="table table-bordered" id="user-table">
+			                          	<thead>
+			                          		<tr><th colspan="15">防     直     击     雷</th></tr>
+			                          		<tr>
+			                          			<th rowspan="3">检测点名称</th>
+			                          			<th colspan="5">接闪器</th>
+			                          			<th colspan="5">引下线</th>
+			                          			<th colspan="2">工频接地电阻</th>
+			                          			<th rowspan="3">结论</th>
+			                          			<th rowspan="3">备注</th>
+			                          		</tr>
+			                          		<tr>
+			                          			<th rowspan="2">架设高度（m）</th>
+			                          			<th rowspan="2">形状</th>
+			                          			<th rowspan="2">材料</th>
+			                          			<th colspan="2">规格</th>
+			                          			<th rowspan="2">材料</th>
+			                          			<th rowspan="2">敷设方式</th>
+			                          			<th rowspan="2">间距</th>
+			                          			<th colspan="2">规格</th>
+			                          			<th rowspan="2">允许值</th>
+			                          			<th rowspan="2">实测值</th>
+			                          		</tr>
+			                          		<tr>
+			                          			<th>允许值</th>
+			                          			<th>实测值</th>
+			                          			<th>允许值</th>
+			                          			<th>实测值</th>
+			                          		</tr>
+			                          	</thead>
+			                          	<tbody class="form-group" id="fzjl-table">
+			                          		<tr>
+			                          			<td><input type="text" class="form-control input-sm" /></td>
+			                          			<td><input type="text" class="form-control input-sm" /></td>
+			                          			<td><input type="text" class="form-control input-sm" /></td>
+			                          			<td><input type="text" class="form-control input-sm" /></td>
+			                          			<td><input type="text" class="form-control input-sm" /></td>
+			                          			<td><input type="text" class="form-control input-sm" /></td>
+			                          			<td><input type="text" class="form-control input-sm" /></td>
+			                          			<td><input type="text" class="form-control input-sm" /></td>
+			                          			<td><input type="text" class="form-control input-sm" /></td>
+			                          			<td><input type="text" class="form-control input-sm" /></td>
+			                          			<td><input type="text" class="form-control input-sm" /></td>
+			                          			<td><input type="text" class="form-control input-sm" /></td>
+			                          			<td><input type="text" class="form-control input-sm" /></td>
+			                          			<td><input type="text" class="form-control input-sm" /></td>
+			                          			<td><input type="text" class="form-control input-sm" /></td>
+			                          		</tr>
+			                          	</tbody>
+		                          </table>
+	                          </div>
+	                          <!-- table end -->
+	                        </div>
+                         </div>
+                         <!-- 第一个table end -->
+                         <!-- 第二个table -->
+                         <div>
+		                	<div class="ibox-title">
+		                         <h5>防雷电感应、防雷电波侵入</h5>
+		                     </div>
+	                        <div class="ibox-content mbt10">
+	                          <!-- table -->
+	                          <div class="table-responsive">
+		                          <table class="table table-bordered" id="user-table">
+			                          	<thead>
+			                          		<tr><th colspan="17">防雷电感应、防雷电波侵入</th></tr>
+			                          		<tr>
+			                          			<th rowspan="3">检测点名称</th>
+			                          			<th colspan="7">大尺寸金属物（设备）等电位连接与接地</th>
+			                          			<th colspan="7">长金属物等电位连接</th>
+			                          			<th rowspan="3">结论</th>
+			                          			<th rowspan="3">备注</th>
+			                          		</tr>
+			                          		<tr>
+			                          			<th rowspan="2">金属物名称</th>
+			                          			<th rowspan="2">外观检查</th>
+			                          			<th rowspan="2">连接导体材料和规格</th>
+			                          			<th colspan="2">过渡电阻（Ω）</th>
+			                          			<th colspan="2">接地电阻（Ω）</th>
+			                          			<th rowspan="2">长金属物名称</th>
+			                          			<th rowspan="2">跨接状况</th>
+			                          			<th rowspan="2">跨接导体材料和规格</th>
+			                          			<th colspan="2">过渡电阻（Ω）</th>
+			                          			<th colspan="2">接地电阻（Ω）</th>
+			                          		</tr>
+			                          		<tr>
+			                          			<th>允许值</th>
+			                          			<th>实测值</th>
+			                          			<th>允许值</th>
+			                          			<th>实测值</th>
+			                          			<th>允许值</th>
+			                          			<th>实测值</th>
+			                          			<th>允许值</th>
+			                          			<th>实测值</th>
+			                          		</tr>
+			                          	</thead>
+			                          	<tbody class="form-group" id="fldgy-table">
+			                          		<tr>
+			                          			<td><input type="text" class="form-control input-sm" /></td>
+			                          			<td><input type="text" class="form-control input-sm" /></td>
+			                          			<td><input type="text" class="form-control input-sm" /></td>
+			                          			<td><input type="text" class="form-control input-sm" /></td>
+			                          			<td><input type="text" class="form-control input-sm" /></td>
+			                          			<td><input type="text" class="form-control input-sm" /></td>
+			                          			<td><input type="text" class="form-control input-sm" /></td>
+			                          			<td><input type="text" class="form-control input-sm" /></td>
+			                          			<td><input type="text" class="form-control input-sm" /></td>
+			                          			<td><input type="text" class="form-control input-sm" /></td>
+			                          			<td><input type="text" class="form-control input-sm" /></td>
+			                          			<td><input type="text" class="form-control input-sm" /></td>
+			                          			<td><input type="text" class="form-control input-sm" /></td>
+			                          			<td><input type="text" class="form-control input-sm" /></td>
+			                          			<td><input type="text" class="form-control input-sm" /></td>
+			                          			<td><input type="text" class="form-control input-sm" /></td>
+			                          			<td><input type="text" class="form-control input-sm" /></td>
+			                          		</tr>
+			                          	</tbody>
+		                          </table>
+	                          </div>
+	                          <!-- table end -->
+	                        </div>
+                         </div>
+                         <!-- 第二个table end -->
+                         <!-- 第三个table -->
+                         <div>
+		                	<div class="ibox-title">
+		                         <h5>电源SPD检测</h5>
+		                     </div>
+	                        <div class="ibox-content mbt10">
+	                          <!-- table -->
+	                          <div class="table-responsive">
+		                          <table class="table table-bordered" id="user-table">
+			                          	<thead>
+			                          		<tr><th colspan="16">电源SPD检测</th></tr>
+			                          		<tr>
+			                          			<th rowspan="3">检测点编号</th>
+			                          			<th rowspan="3">安装位置</th>
+			                          			<th rowspan="3">产品型号</th>
+			                          			<th colspan="5">连接导线</th>
+			                          			<th colspan="2">Iie测试值（μA）</th>
+			                          			<th colspan="2">U1mA测试值（V）</th>
+			                          			<th colspan="2">接地电阻(Ω)</th>
+			                          			<th rowspan="3">结论</th>
+			                          			<th rowspan="3">备注</th>
+			                          		</tr>
+			                          		<tr>
+			                          			<th rowspan="2">长度（m）</th>
+			                          			<th colspan="2">截面(mm2)</th>
+			                          			<th rowspan="2">色标</th>
+			                          			<th rowspan="2">材料</th>
+			                          			<th rowspan="2">允许值</th>
+			                          			<th rowspan="2">实测值</th>
+			                          			<th rowspan="2">允许值</th>
+			                          			<th rowspan="2">实测值</th>
+			                          			<th rowspan="2">允许值</th>
+			                          			<th rowspan="2">实测值</th>
+			                          		</tr>
+			                          		<tr>
+			                          			<th>允许值</th>
+			                          			<th>实测值</th>
+			                          		</tr>
+			                          	</thead>
+			                          	<tbody class="form-group" id="dyspdjc-table">
+			                          		<tr>
+			                          			<td><input type="text" class="form-control input-sm" /></td>
+			                          			<td><input type="text" class="form-control input-sm" /></td>
+			                          			<td><input type="text" class="form-control input-sm" /></td>
+			                          			<td><input type="text" class="form-control input-sm" /></td>
+			                          			<td><input type="text" class="form-control input-sm" /></td>
+			                          			<td><input type="text" class="form-control input-sm" /></td>
+			                          			<td><input type="text" class="form-control input-sm" /></td>
+			                          			<td><input type="text" class="form-control input-sm" /></td>
+			                          			<td><input type="text" class="form-control input-sm" /></td>
+			                          			<td><input type="text" class="form-control input-sm" /></td>
+			                          			<td><input type="text" class="form-control input-sm" /></td>
+			                          			<td><input type="text" class="form-control input-sm" /></td>
+			                          			<td><input type="text" class="form-control input-sm" /></td>
+			                          			<td><input type="text" class="form-control input-sm" /></td>
+			                          			<td><input type="text" class="form-control input-sm" /></td>
+			                          			<td><input type="text" class="form-control input-sm" /></td>
+			                          		</tr>
+			                          	</tbody>
+		                          </table>
+	                          </div>
+	                          <!-- table end -->
+	                        </div>
+                         </div>
+                         <!-- 第三个table end -->
+                         <div class="ibox-content buttons footer-box">
+                            <button type="button" class="btn btn-primary btn-sm" id="submit" onclick="add()">保存</button>
+                            <button type="button" class="btn btn-primary btn-bitbucket btn-sm back">
+                                <i class="fa fa-arrow-left"></i> 返回
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>   
+            <div class="footer">
+                <div>
+                    <strong>Copyright</strong> 山东省枣庄市气象局 &copy; 2018
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- Mainly scripts -->
+    <script src="/static/js/jquery-2.1.1.min.js"></script>
+    <script src="/static/js/jquery-ui-1.10.4.min.js"></script>
+    <script src="/static/js/bootstrap.min.js?v=3.4.0"></script>
+    <script src="/static/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="/static/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <!-- Custom and plugin javascript -->
+    <script src="/static/js/hplus.js?v=2.2.0"></script>
+    <script src="/static/js/plugins/pace/pace.min.js"></script>
+    <!-- layer javascript -->
+	<script src="/static/js/plugins/layer/layer.min.js"></script>
+    <script src="/static/js/buttons.js"></script>
+    <!-- Data picker -->
+    <script src="/static/js/plugins/datapicker/bootstrap-datepicker.js"></script>
+    
+    <script src="/static/js/common/jqueryCommon.js"></script>
+	<script src="/static/js/plugins/bootstrap-paginator.min.js"></script>
+	<script src="/static/js/examiningReportStatistics/examiningReportStatistics_info.js"></script>
+</body>
+</html>

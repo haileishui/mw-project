@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge"> 
+    <title>主页</title>
+    <script src="/static/js/jquery-2.1.1.min.js"></script>
+    <script src="/static/js/includetem.js"></script>
+    <link href="/static/css/bootstrap.min.css?v=5.4.0" rel="stylesheet">
+    <link href="/static/font-awesome/css/font-awesome.css?v=5.3.0" rel="stylesheet">
+    <link href="/static/css/style.css?v=3.2.0" rel="stylesheet">
+    <link href="/static/css/newStyles.css" rel="stylesheet">
+</head>
+<body>
+    <div id="wrapper">
+        <!--左边菜单-->
+		<div class="includetem"  id="include_my_menu" include="sideNav.html" selectclass="menu-selected"></div>
+        <div id="page-wrapper" class="gray-bg dashbard-1">
+        	<div class="row border-bottom">
+			    <nav class="navbar navbar-static-top mbt0" role="navigation">
+			        <div class="navbar-header">
+			            <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a> 
+			        </div>
+        			<!-- 右侧顶部菜单 -->
+					<div class="includetem"  id="include_top_nav" include="topNav.html"></div>
+        			<!-- 右侧顶部菜单 end -->
+			    </nav>
+			</div>
+            <div class="row wrapper border-bottom white-bg page-heading">
+                <div class="col-lg-10">
+                    <h2>主页</h2>
+                </div>
+            </div>
+            <div class="wrapper wrapper-content animated fadeInRight">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <a href="examiningReport_list.html">
+                            <div class="widget style1 navy-bg">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <i class="fa fa-list-alt fa-4x"></i>
+                                    </div>
+                                    <div class="col-xs-9 text-right process">
+                                        <p>检测报告</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                   <!--  <div class="col-lg-4">
+                        <a href="examiningReportStatistics_list.html">
+                            <div class="widget style1 navy-bg">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <i class="fa fa-file-o fa-4x"></i>
+                                    </div>
+                                    <div class="col-xs-9 text-right process">
+                                        <p>报告统计</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div> -->
+                    <div id="nav6_div" class="col-lg-4 admin-see">
+                        <a href="user_list.html">
+                            <div class="widget style1 navy-bg">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <i class="fa fa-user fa-4x"></i>
+                                    </div>
+                                    <div class="col-xs-9 text-right process">
+                                        <p>用户信息</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="footer">
+                <div>
+                    <strong>Copyright</strong> 山东省枣庄市气象局 &copy; 2018
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- Mainly scripts -->
+    <script src="/static/js/jquery-ui-1.10.4.min.js"></script>
+    <script src="/static/js/bootstrap.min.js?v=3.4.0"></script>
+    <script src="/static/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="/static/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <!-- Custom and plugin javascript -->
+    <script src="/static/js/hplus.js?v=2.2.1"></script>
+    <script src="/static/js/plugins/pace/pace.min.js"></script>
+    
+    <script src="/static/js/common/jqueryCommon.js"></script>
+    <script type="text/javascript">
+//     $(function(){
+//     	ajax({
+//     		url:'/getLoginUserInfo.json',  
+//     		data:{},
+//     		success:function(d) { 
+//     			if(d.isSuccess){
+//     				if("admin" != d.userName){
+//     					$("#nav6").remove();
+//     					$("#nav6_div").remove();
+//     				};
+//     				$("#xsy-username").val(d.name);
+//     			}
+//     		 },     
+//     		error : function(data, status, e) {
+//     		}  
+//     	});
+//     });
+    </script>
+</body>
+</html>

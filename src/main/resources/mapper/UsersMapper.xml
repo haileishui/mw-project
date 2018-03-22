@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lmw.dao.UsersDao">
+
+	<sql id="table">
+		t_users
+	</sql>
+	<resultMap id="users" type="com.lmw.domain.Users">
+		<result column="uid"  property="uid"  /> <!--主键ID -->
+		<result column="user_name"  property="userName"  /> <!--用户名 -->
+		<result column="password"  property="password"  /> <!--密码 -->
+		<result column="status"  property="status"  /> <!--用户状态0正常，1禁用 -->
+		<result column="phone"  property="phone"  /> <!--手机号 -->
+		<result column="company"  property="company"  /> <!--公司 -->
+		<result column="creator"  property="creator"  /> <!--创建者 -->
+		<result column="create_time"  property="createTime"  /> <!--创建时间 -->
+	</resultMap>
+	<!-- 查询用户-->
+	<select id="getUsersList" parameterType="com.lmw.domain.Users" resultMap="users">
+		SELECT uid as uid
+			,name as name
+			,user_name as userName
+			,password as password
+			,status as status
+			,phone as phone
+			,company as company
+			,creator as creator
+			,create_time as createTime
+		FROM <include refid="table"/>
+		<where>
+			<if test=" '' != userName and null != userName">
+				AND user_name = #{userName}
+			</if>
+			<if test=" '' != password and null != password">
+				AND password =#{password}
+			</if>
+			<if test=" '' != name and null != name">
+				AND name =#{name}
+			</if>
+			<if test=" '' != status and null != status">
+				AND status =#{status}
+			</if>
+			<if test=" '' != company and null != company">
+				AND company =#{company}
+			</if>
+		</where>
+	</select>
+	<select id="getUsersInfoById" resultMap="users" parameterType="com.lmw.domain.Users" >
+	  select uid as uid
+			,name as name
+			,user_name as userName
+			,password as password
+			,status as status
+			,phone as phone
+			,company as company
+			,creator as creator
+			,create_time as createTime
+	  from <include refid="table"/>
+	  where uid = #{uid}
+	</select>
+	<!-- 查询用户信息根据用户名密码 -->
+	<select id="getUsersInfoByUserNamePassword" parameterType="com.lmw.domain.Users" resultMap="users">
+		SELECT uid as uid
+			,name as name
+			,user_name as userName
+			,password as password
+			,status as status
+			,phone as phone
+			,company as company
+			,creator as creator
+			,create_time as createTime
+		FROM <include refid="table"/>
+		WHERE user_name = #{userName}
+		AND password =#{password}
+		LIMIT 1
+	</select>
+	<!-- 查询用户名密码是否正确 -->
+	<select id="getUsersListCount" parameterType="com.lmw.domain.Users" resultType="Integer">
+		SELECT COUNT(1)
+		FROM <include refid="table"/>
+		<where>
+			<if test=" '' != userName and null != userName">
+				AND user_name = #{userName}
+			</if>
+			<if test=" '' != password and null != password">
+				AND password =#{password}
+			</if>
+		</where>
+	</select>
+	<!-- 新增用户 -->
+	<insert id="insertUserInfo" parameterType="com.lmw.domain.Users">
+		INSERT INTO <include refid="table"/>
+		(uid
+		,name 
+		,user_name
+		,password
+		,status
+		,phone
+		,company
+		,creator
+		) 
+		VALUES
+		(#{uid}
+		,#{name}
+		,#{userName}
+		,#{password}
+		,#{status}
+		,#{phone}
+		,#{company}
+		,#{creator}
+		)
+	</insert>
+	<!-- 更新用户信息 -->
+	<update id="updateUsersInfo" parameterType="com.lmw.domain.Users">
+		update t_users
+	    <set >
+	      <if test="name != null" >
+	        name = #{name,jdbcType=VARCHAR},
+	      </if>
+	      <if test="userName != null" >
+	        user_name = #{userName,jdbcType=VARCHAR},
+	      </if>
+	      <if test="password != null" >
+	        password = #{password,jdbcType=VARCHAR},
+	      </if>
+	      <if test="status != null" >
+	        status = #{status,jdbcType=VARCHAR},
+	      </if>
+	      <if test="phone != null" >
+	        phone = #{phone,jdbcType=VARCHAR},
+	      </if>
+	      <if test="company != null" >
+	        company = #{company,jdbcType=VARCHAR},
+	      </if>
+	    </set>
+    	where uid = #{uid}
+	</update>
+	<delete id="deleteUsersInfoById" parameterType="com.lmw.domain.Users" >
+	    delete from t_users
+	    where uid = #{uid}
+  	</delete>
+</mapper>
