@@ -10,6 +10,8 @@ public class TAntiThunder extends BaseBean implements Serializable {
 
 	private Integer id;
 
+	private String test;
+
 	private Integer pid;
 
 	private String jiancedianmingcheng;
