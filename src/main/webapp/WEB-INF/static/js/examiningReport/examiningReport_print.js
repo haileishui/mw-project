@@ -137,7 +137,7 @@ function getData(){
      			for (var i = 0; i < 22; i++) {
 					 var str = '';
 					 if(i == 0){
-     					 str += '<tr style="height:30px;" ><td colspan="8" style=";">本页以下内容为空</td>'
+     					 str += '<tr style="height:30px;" ><td colspan="8" style=";">本页以下空白</td>'
      				 }else{
 	     				 str += '<tr style="height:30px;" ><td></td>'+
 	               			'<td></td>'+
@@ -186,7 +186,7 @@ function getData(){
      			 for (var i = 0; i < (22-data.antiThunderList.length ); i++) {
 					 var str = '';
 					 if(i == 0){
-     					 str += '<tr style="height:30px;" ><td colspan="8" style=";">本页以下内容为空</td>'
+     					 str += '<tr style="height:30px;" ><td colspan="8" style=";">本页以下空白</td>'
      				 }else{
 	     				 str += '<tr style="height:30px;" ><td></td>'+
 	               			'<td></td>'+
@@ -216,7 +216,7 @@ function getData(){
      			for (var i = 0; i < 22; i++) {
 					 var str = '';
 					 if(i == 0){
-    					 str += '<tr style="height:30px;" ><td colspan="6" style=";">本页以下内容为空</td>'
+    					 str += '<tr style="height:30px;" ><td colspan="6" style=";">本页以下空白</td>'
     				 }else{
     					 str += '<tr style="height:30px;" ><td></td>'+
     					 '<td></td>'+
@@ -263,7 +263,7 @@ function getData(){
      			 for (var i = 0; i < (22-data.powerSupplyList.length); i++) {
 					 var str = '';
 					 if(i == 0){
-     					 str += '<tr style="height:30px;" ><td colspan="6" style=";">本页以下内容为空</td>'
+     					 str += '<tr style="height:30px;" ><td colspan="6" style=";">本页以下空白</td>'
      				 }else{
      					 str += '<tr style="height:30px;" ><td></td>'+
      					 '<td></td>'+

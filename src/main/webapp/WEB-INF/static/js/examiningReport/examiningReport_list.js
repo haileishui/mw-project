@@ -70,13 +70,16 @@ function getData(pageNumber,pageSize){
 			                     '<td>'+isNull(item.pizhunren)+'</td>'+
 			                     '<td>'+isNull(item.jiancejine)+'</td>'+
 			                     '<td>'+isNull(companyJsonMap[item.title])+'</td>'+
-			                     '<td class="user"><span onclick="userSee('+item.id+')">查看</span><span onclick="userChange('+item.id+')">修改</span><span onclick="userDel('+item.id+')">删除</span><span onclick="userPrint('+item.id+')">打印预览</span></td>'+
+			                     '<td class="user"><span onclick="userSee('+item.id+')">查看</span><span onclick="userChange('+item.id+')">修改</span><span onclick="userPrint('+item.id+')">打印预览</span><span onclick="userDel('+item.id+')" class="admin-see">删除</span></td>'+
 	                     '</tr>';
 	        	 });
         	 }
         	 $("#table-list").html(str);
         	 //分页
         	 pageinit("pageLimit",data,getData);//pageLimit:放置分页div的id值     data:异步返回的数据    getData:回调函数
+        	 if(xsyUsername=="admin"){
+        		 $(".admin-see").css("display","block");
+        	 }
          }
      });
 }
