@@ -195,8 +195,24 @@ table-list div{ display:table-row;}
 	#user-table.table-bordered{ border-color:#000!important;}
 }
 .nav>li.admin-see,.admin-see{ display:none;}
-
-
+th{
+font-weight: normal;
+}
+.thwidth90{
+	width: 100px;
+}
+.thwidth60{
+	width: 65px;
+}
+.thwidth70{
+	width: 70px;
+}
+.thwidth80{
+	width: 80px;
+}
+.thjiance{
+	width: 150px;
+}
 
 
 
